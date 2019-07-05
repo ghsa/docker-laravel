@@ -22,7 +22,7 @@ steps:
 
 - id: 'Running migrations'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-t', 'app', 'php', 'artisan', 'migrate']
+  args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate']
 
 - id: 'Running tests with phpunit'
   name: 'gcr.io/cloud-builders/docker'
