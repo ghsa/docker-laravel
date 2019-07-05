@@ -19,3 +19,12 @@ steps:
 - id: 'Generate key'
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec', '-t', 'app', 'php', 'artisan', 'key:generate']
+
+- id: 'Running migrations'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'php', 'artisan', 'migrate']
+
+- id: 'Running tests with phpunit'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'php', './vendor/bin/phpupt', '-c', 'phpunit.xml']
+
