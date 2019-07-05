@@ -9,13 +9,13 @@ steps:
   args: ['ps']
 
 - id: 'Running Componser'
-  name: 'gcr.id/cloud-builders/docker'
+  name: 'gcr.io/cloud-builders/docker'
   args: ['exec', '-t', 'app', 'composer', 'install']
 
 - id: 'Copy .env file'
-  name: 'gcr.id/cloud-builders/docker'
+  name: 'gcr.io/cloud-builders/docker'
   args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
 
 - id: 'Generate key'
-  name: 'gcr.id/cloud-builders/docker'
+  name: 'gcr.io/cloud-builders/docker'
   args: ['exec', '-t', 'app', 'php', 'artisan', 'key:generate']
