@@ -1,0 +1,6 @@
+steps:
+
+    - id: 'Runing docker-compose'
+    # Get the container with docker-compose tu use it
+    name: 'gcr.io/$PROJECT_ID/docker-compose'
+    args: ['-f', 'docker-compose.cloudbuild.yaml', 'up' , '-d']
