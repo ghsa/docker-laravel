@@ -1,4 +1,21 @@
 steps:
-- id: 'Runing docker-compose'
+
+- id: 'Running docker-compose'
   name: 'gcr.io/$PROJECT_ID/docker-compose'
   args: ['-f', 'docker-compose.cloudbuild.yaml', 'up' , '-d']
+
+- id: 'Running ps'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['ps']
+
+- id: 'Running Componser'
+  name: 'gcr.id/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'composer', 'install']
+
+- id: 'Copy .env file'
+  name: 'gcr.id/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
+
+- id: 'Generate key'
+  name: 'gcr.id/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'php', 'artisan', 'key:generate']
