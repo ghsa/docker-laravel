@@ -26,5 +26,5 @@ steps:
 
 - id: 'Running tests with phpunit'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-t', 'app', 'php', './vendor/bin/phpupt', '-c', 'phpunit.xml']
+  args: ['exec', '-t', 'app', 'php', './vendor/bin/phpunit', '-c', 'phpunit.xml']
 
